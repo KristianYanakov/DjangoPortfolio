@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.forms import UserCreationForm
 
 from .forms import BlogPostForm
 from .models import BlogPost
@@ -15,11 +17,14 @@ def single_blogpost(request, blogpost_id):
 
     return render(request, 'single_blogpost.html', {'blogpost': blogpost})
 
+@login_required
 def create_blogpost(request):
     if request.method == 'POST':
         form = BlogPostForm(request.POST) # pass POST data to the form
         if form.is_valid():
-            form.save() #save the blgopost to the databse
+            blog_post = form.save(commit=False)
+            blog_post.user = request.user
+            blog_post.save()
             return redirect('display_blogposts') #redirect to the view with all of the blogposts
     else:
         form = BlogPostForm()  # Assign empty form for GET requests

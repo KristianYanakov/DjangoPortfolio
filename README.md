@@ -114,4 +114,3 @@ Add a screenshot of your homepage or project list view here.
 Built by Kristian Yanakov
 LinkedIn
 GitHub
-
