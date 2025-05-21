@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Projects</title>
+  </head>
+  <body>
+    <h1>Projects</h1>
+    <ol>
+      {% for project in projects %}
+        <li>
+          <h2><strong> {{ project.title }}</strong></h2><br>
+          <p> {{ project.author }}</p><br>
+          <p> {{ project.description }} </p><br>
+          <p> {{ project.created_at }} </p>
+        </li>
+      {% empty %}
+        <li>No projects found.</li>
+      {% endfor %}
+    </ol>
+  </body>
+</html>

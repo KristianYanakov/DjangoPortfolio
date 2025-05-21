@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{{ project.title }}</title>
+</head>
+<body class="bg-gray-100 p-6">
+  <h1 class="text-3xl font-bold">{{ project.title }}</h1>
+  <p class="text-gray-700 mt-2">{{ project.description }}</p>
+  <p class="text-sm text-gray-500">Author: {{ project.author }}</p>
+  <p class="text-sm text-gray-500">Created: {{ project.created_at|date:"F j, Y" }}</p>
+
+  {% if project.github_url %}
+    <a href="{{ project.github_url }}" class="text-blue-600 hover:underline" target="_blank">GitHub Repo</a>
+  {% endif %}
+</body>
+</html>

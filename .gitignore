@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+*.egg
+*.log
+
+# Django DB
+db.sqlite3
+
+# Environment
+.env
+venv/
+*.env
+
+# Django static/media files (optional, if generated at runtime)
+staticfiles/
+media/
+
+# VS Code / IDE stuff
+.vscode/
+.idea/
+
+# MacOS
+.DS_Store
+
+# Pytest / coverage
+htmlcov/
+.coverage
+*.cover
+*.pyc
+
+# Migrations (optional, depends on team preference)
+# Uncomment if you don't want to track them in early dev
+# **/migrations/*.py
+# **/migrations/*.pyc
