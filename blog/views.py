@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 
 from .forms import BlogPostForm
@@ -9,6 +9,11 @@ def display_blogposts(request):
 
     return render(request, 'blog.html', {'blog_posts': blog_posts})
     # return HttpResponse("HELLO WORKING BLOGGGGGG")
+
+def single_blogpost(request, blogpost_id):
+    blogpost = get_object_or_404(BlogPost, id=blogpost_id)
+
+    return render(request, 'single_blogpost.html', {'blogpost': blogpost})
 
 def create_blogpost(request):
     if request.method == 'POST':
