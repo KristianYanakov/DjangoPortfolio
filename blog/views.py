@@ -9,6 +9,7 @@ from .models import BlogPost
 def display_blogposts(request):
     blog_posts = BlogPost.objects.all()
 
+    blog_posts = reversed(blog_posts) # so the most recent blogpost would be up top
     return render(request, 'blog.html', {'blog_posts': blog_posts})
     # return HttpResponse("HELLO WORKING BLOGGGGGG")
 
